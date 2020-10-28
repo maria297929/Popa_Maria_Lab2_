@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Popa_Maria_Lab2_"
         mc:Ignorable="d"
-        Title="Virtual Doughnuts Factory" Height="450" Width="800" ResizeMode="NoResize" Background="{DynamicResource {x:Static SystemColors.ActiveCaptionBrushKey}}" VerticalAlignment="Center" HorizontalAlignment="Center" HorizontalContentAlignment="Center">
+        Title="Virtual Doughnuts Factory" Height="450" Width="800" ResizeMode="NoResize" Background="{DynamicResource {x:Static SystemColors.ActiveCaptionBrushKey}}" VerticalAlignment="Center" HorizontalAlignment="Center" HorizontalContentAlignment="Center" Loaded="frmMain_Loaded">
     <Grid>
         <Canvas x:Name="Canvas_for_lbl_gb">
             <Label x:Name="lblTitle" Content="Doughnuts - Bake &amp; Sale" FontSize="24" FontWeight="Bold" FontFamily="Adobe Caslon Pro Bold" Height="434" Width="800" HorizontalContentAlignment="Center"/>
@@ -26,7 +26,7 @@
             <Label x:Name="lblGlazedRaised" Content="Glazed" Canvas.Left="146" Canvas.Top="124"/>
             <TextBox x:Name="txtGlazedRaised" Text="0" TextWrapping="Wrap" Width="120" IsReadOnly="True" Canvas.Left="247" Canvas.Top="128"/>
             <Label x:Name="lblSugarRaised" Content="Sugar" Canvas.Left="152" Canvas.Top="170"/>
-            <TextBox x:Name="txtSugarRAised" Text="0" TextWrapping="Wrap" Width="120" IsReadOnly="True" Canvas.Left="247" Canvas.Top="178"/>
+            <TextBox x:Name="txtSugarRaised" Text="0" TextWrapping="Wrap" Width="120" IsReadOnly="True" Canvas.Left="247" Canvas.Top="178"/>
 
         </Canvas>
         <Canvas x:Name="Current_Sale" Margin="132,271,132,14">
@@ -48,16 +48,17 @@
         <Menu x:Name="mnuMain" HorizontalAlignment="Left" Height="21" VerticalAlignment="Top"
 Width="130">
             <MenuItem Header="File">
-                <MenuItem Header="Exit"/>
+                <MenuItem Header="Exit" Click="exitToolStripMenuItem_Click"/>
             </MenuItem>
             <MenuItem Header="Doughnuts">
-                <MenuItem Header="Make">
+                <MenuItem Header="Make" Click="MenuItem_Click">
                     <MenuItem Header="Raised">
-                        <MenuItem x:Name="glazedMenuItem" Header="Glazed"/>
-                        <MenuItem x:Name="sugarMenuItem" Header="Sugar"/>
+                        <MenuItem x:Name="glazedMenuItem" Header="Glazed" Click="glazedMenuItem_Click" IsCheckable="True"/>
+                        <MenuItem x:Name="sugarMenuItem" Header="Sugar"  Click="sugarMenuItem_Click" IsCheckable="True"/>
                     </MenuItem>
                     <MenuItem Header="Filled"/>
                 </MenuItem>
+                <MenuItem x:Name="mnuStop" Header="Stop" Click="stopToolStripMenuItem_Click"/>
             </MenuItem>
         </Menu>
 
